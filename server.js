@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from "express";
 import cors from "cors";
-import { connetcDB } from "./config/db.js";
+import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 
 // app config
@@ -12,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // db connection
-connetcDB();
+connectDB();
 
 // rest api's endpoints
 app.use("/food", foodRouter);
